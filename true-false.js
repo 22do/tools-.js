@@ -4,11 +4,11 @@ let stringKosong = '' //false
 let stringIsi ='a'  //true
 let objKosong = {}  //true
 let objIsi = {id:1} //true
-let arrKosong = []  //benar
-let arrIsi = [1,2]  //benar
-let Undefined = undefined //salah
-let kosong  //salah
-let math = Math //benar
+let arrKosong = []  //true
+let arrIsi = [1,2]  //true
+let Undefined = undefined //false
+let kosong  //false
+let math = Math //true
 
 function trueFalse(){
   let array = [
