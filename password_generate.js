@@ -12,6 +12,8 @@ console.log(rand(randomOptions))
 /*
 random generate done
 for loop
+let hasil
 jika hasil random sama dengan jenis yang sebelumnya maka random ulang
-jika tidak maka push / +=
+jika tidak maka hasil push / +=
+return hasil
 */
