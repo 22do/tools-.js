@@ -19,9 +19,14 @@ jika hasil random sama dengan jenis yang sebelumnya maka random ulang
 jika tidak maka hasil push / +=
 return hasil
 */
-
+let hasil = ''
+console.log(hasil)
 //need fix
 for (let index = 0; index < randomOptions.length; index++) {
-if(random == randomOptions){console.log(true)}
+if(random == randomOptions[index]){
+  console.log(true)
+  console.log(random, randomOptions, randomOptions[index])
+  break
+}
 else{console.log(false)}
 }
