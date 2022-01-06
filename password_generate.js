@@ -2,7 +2,6 @@ let upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYXZ";
 let lowerCase = "abcdefghijklmnopqrstuvwxyz";
 let number = "1234567890";
 let symbol = '`!@#$%^&*()_+{}|:"<>?[];,./';
-let options = [upperCase, lowerCase, number, symbol];
 let hasil = "";
 
 
@@ -10,6 +9,7 @@ let hasil = "";
 function generate(x) {
   if (x.length >= 4) {
     //--fitur trueFalse--
+    let options = [upperCase, lowerCase, number, symbol];
     let uppercase = options.indexOf(upperCase);
     if (x.upperCase == false) {
       options.splice(uppercase, 1);
@@ -92,5 +92,7 @@ function apakahPunyaSymbol(x) {
   return false;
 }
 
-let arr = {length:15}
-console.log(generate(arr));
+// let arr = {length:15, upperCase:false, number:false}
+// console.log(generate(arr));
+
+//export {generate,apakahPunyaUpperCase,apakahPunyaLowerCase,apakahPunyaNumber,apakahPunyaSymbol}
