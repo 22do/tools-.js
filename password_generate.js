@@ -5,9 +5,6 @@ let symbol = '`!@#$%^&*()_+{}|:"<>?[];,./';
 let options = [upperCase, lowerCase, number, symbol];
 let hasil = "";
 
-function rand(x) {
-  return x[Math.floor(Math.random() * x.length)];
-}
 
 //--password generate--
 function generate(x) {
@@ -29,6 +26,10 @@ function generate(x) {
     if (x.symbol == false) {
       options.splice(Symbol, 1);
     }
+    console.log(options)
+    function rand(x) {
+      return x[Math.floor(Math.random() * x.length)];
+    }
 
     let i = hasil.length - 1;
     let randomOptions = rand(options);
@@ -42,7 +43,7 @@ function generate(x) {
     if (korek) {
       hasil += random;
     }
-    for (let index = 0; hasil.length < paramLength; index++) {
+    for (let index = 0; hasil.length < x.length; index++) {
       generate(x);
     }
     return hasil;
@@ -91,5 +92,5 @@ function apakahPunyaSymbol(x) {
   return false;
 }
 
-// let paramLength = 20;
-//console.log(generate(paramLength));
+let arr = {length:15}
+console.log(generate(arr));
