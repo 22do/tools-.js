@@ -26,7 +26,7 @@ function generate(x) {
     if (x.symbol == false) {
       options.splice(Symbol, 1);
     }
-    console.log(options)
+
     function rand(x) {
       return x[Math.floor(Math.random() * x.length)];
     }
