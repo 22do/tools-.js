@@ -9,24 +9,87 @@ function rand(x) {
   return x[Math.floor(Math.random() * x.length)];
 }
 
-function generate() {
-  let i = hasil.length - 1;
-  let randomOptions = rand(options);
-  let random = rand(randomOptions);
-  random;
-  let korek = 1;
-  for (let index = 0; index < randomOptions.length; index++) {
-    if (hasil[i] === randomOptions[index]) {
-      korek -= 1;
+//--password generate--
+function generate(x) {
+  if (x.length >= 4) {
+    //--fitur trueFalse--
+    let uppercase = options.indexOf(upperCase);
+    if (x.upperCase == false) {
+      options.splice(uppercase, 1);
+    }
+    let lowercase = options.indexOf(lowerCase);
+    if (x.lowerCase == false) {
+      options.splice(lowercase, 1);
+    }
+    let Number = options.indexOf(number);
+    if (x.number == false) {
+      options.splice(Number, 1);
+    }
+    Symbol = options.indexOf(symbol);
+    if (x.symbol == false) {
+      options.splice(Symbol, 1);
+    }
+
+    let i = hasil.length - 1;
+    let randomOptions = rand(options);
+    let random = rand(randomOptions);
+    let korek = 1;
+    for (let index = 0; index < randomOptions.length; index++) {
+      if (hasil[i] === randomOptions[index]) {
+        korek -= 1;
+      }
+    }
+    if (korek) {
+      hasil += random;
+    }
+    for (let index = 0; hasil.length < paramLength; index++) {
+      generate(x);
+    }
+    return hasil;
+  }
+}
+
+//--apakahada fitur--
+function apakahPunyaUpperCase(x) {
+  for (let index = 0; index < upperCase.length; index++) {
+    for (let i = 0; i < x.length; i++) {
+      if (x[i] === upperCase[index]) {
+        return true;
+      }
     }
   }
-  if (korek) {
-    hasil += random;
+  return false;
+}
+function apakahPunyaLowerCase(x) {
+  for (let index = 0; index < lowerCase.length; index++) {
+    for (let i = 0; i < x.length; i++) {
+      if (x[i] === lowerCase[index]) {
+        return true;
+      }
+    }
   }
-  return hasil;
+  return false;
 }
-let paramLength = 10;
-for (let index = 0; hasil.length < paramLength; index++) {
-  generate();
+function apakahPunyaNumber(x) {
+  for (let index = 0; index < number.length; index++) {
+    for (let i = 0; i < x.length; i++) {
+      if (x[i] === number[index]) {
+        return true;
+      }
+    }
+  }
+  return false;
 }
-console.log(hasil);
+function apakahPunyaSymbol(x) {
+  for (let index = 0; index < symbol.length; index++) {
+    for (let i = 0; i < x.length; i++) {
+      if (x[i] === symbol[index]) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
+// let paramLength = 20;
+//console.log(generate(paramLength));
