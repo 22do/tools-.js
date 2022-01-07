@@ -2,53 +2,55 @@ let upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYXZ";
 let lowerCase = "abcdefghijklmnopqrstuvwxyz";
 let number = "1234567890";
 let symbol = '`!@#$%^&*()_+{}|:"<>?[];,./';
-let hasil = "";
-
 
 //--password generate--
 function generate(x) {
-  if (x.length >= 4) {
-    //--fitur trueFalse--
-    let options = [upperCase, lowerCase, number, symbol];
-    let uppercase = options.indexOf(upperCase);
-    if (x.upperCase == false) {
-      options.splice(uppercase, 1);
-    }
-    let lowercase = options.indexOf(lowerCase);
-    if (x.lowerCase == false) {
-      options.splice(lowercase, 1);
-    }
-    let Number = options.indexOf(number);
-    if (x.number == false) {
-      options.splice(Number, 1);
-    }
-    Symbol = options.indexOf(symbol);
-    if (x.symbol == false) {
-      options.splice(Symbol, 1);
-    }
-
-    function rand(x) {
-      return x[Math.floor(Math.random() * x.length)];
-    }
-
-    let i = hasil.length - 1;
-    let randomOptions = rand(options);
-    let random = rand(randomOptions);
-    let korek = 1;
-    for (let index = 0; index < randomOptions.length; index++) {
-      if (hasil[i] === randomOptions[index]) {
-        korek -= 1;
+  let hasil = "";
+  function password(x) {
+    if (x.length >= 4) {
+      //--fitur trueFalse--
+      let options = [upperCase, lowerCase, number, symbol];
+      let uppercase = options.indexOf(upperCase);
+      if (x.upperCase == false) {
+        options.splice(uppercase, 1);
       }
+      let lowercase = options.indexOf(lowerCase);
+      if (x.lowerCase == false) {
+        options.splice(lowercase, 1);
+      }
+      let Number = options.indexOf(number);
+      if (x.number == false) {
+        options.splice(Number, 1);
+      }
+      Symbol = options.indexOf(symbol);
+      if (x.symbol == false) {
+        options.splice(Symbol, 1);
+      }
+
+      function rand(x) {
+        return x[Math.floor(Math.random() * x.length)];
+      }
+
+      let i = hasil.length - 1;
+      let randomOptions = rand(options);
+      let random = rand(randomOptions);
+      let korek = 1;
+      for (let index = 0; index < randomOptions.length; index++) {
+        if (hasil[i] === randomOptions[index]) {
+          korek -= 1;
+        }
+      }
+      if (korek) {
+        hasil += random;
+      }
+      for (let index = 0; hasil.length < x.length; index++) {
+        password(x);
+      }
+      return hasil;
     }
-    if (korek) {
-      hasil += random;
-    }
-    for (let index = 0; hasil.length < x.length; index++) {
-      generate(x);
-    }
-    return hasil;
   }
 }
+password()
 
 //--apakahada fitur--
 function apakahPunyaUpperCase(x) {
@@ -92,7 +94,9 @@ function apakahPunyaSymbol(x) {
   return false;
 }
 
-// let arr = {length:15, upperCase:false, number:false}
-// console.log(generate(arr));
+let arr1 = { length: 15, upperCase: false, number: false };
+let arr2 = { length: 4 };
+console.log(generate(arr1));
+console.log(generate(arr2));
 
 //export {generate,apakahPunyaUpperCase,apakahPunyaLowerCase,apakahPunyaNumber,apakahPunyaSymbol}
