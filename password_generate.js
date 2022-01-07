@@ -49,8 +49,9 @@ function generate(x) {
       return hasil;
     }
   }
+  password(x)
+  return hasil
 }
-password()
 
 //--apakahada fitur--
 function apakahPunyaUpperCase(x) {
@@ -94,9 +95,8 @@ function apakahPunyaSymbol(x) {
   return false;
 }
 
-let arr1 = { length: 15, upperCase: false, number: false };
-let arr2 = { length: 4 };
-console.log(generate(arr1));
-console.log(generate(arr2));
-
-//export {generate,apakahPunyaUpperCase,apakahPunyaLowerCase,apakahPunyaNumber,apakahPunyaSymbol}
+exports.generate = generate
+exports.apakahPunyaUpperCase = apakahPunyaUpperCase
+exports.apakahPunyaLowerCase = apakahPunyaLowerCase
+exports.apakahPunyaNumber = apakahPunyaNumber
+exports.apakahPunyaSymbol = apakahPunyaSymbol
