@@ -6,7 +6,7 @@ const p3 = {length: 4}
 const p4 = {length: 123}
 const p5 = {length: 8, upperCase: false}
 const p6 = {length: 9, lowerCase: false, number: false}
-const p7 = {length: 10, uppercase: false, lowerCase: false, symbol: false }
+const p7 = {length: 10, upperCase: false, symbol: false }
 
 const t1 = passwordGenerate.generate(p1) 
 const t2 = passwordGenerate.generate(p2) 
@@ -18,14 +18,13 @@ const t7 = passwordGenerate.generate(p7)
 
 console.log(`Password Generate t1:${t1}`)
 console.log(`Password Generate t2:${t2}`)
-console.log(`Password Generate t3:${t3}`, `length:${t3.length}`)
-console.log(`Password Generate t4:${t4}`, `length:${t4.length}`)
-console.log(`Password Generate t5:${t5}`, `Length:${t5.length}`,
-  `Apakah punya Upper Case:${passwordGenerate.apakahPunyaUpperCase(t5)}`)
-console.log(`Password Generate t6:${t6}`, `Length:${t6.length}`,
-  `Apakah Punya Lower Case:${passwordGenerate.apakahPunyaLowerCase(t6)}`,
-  `Apakah Punya Number:${passwordGenerate.apakahPunyaNumber(t6)}`)
-console.log(`Password Generate t7:${t6}`, `Length:${t7.length}`,
-  `Apakah Punya Upper Case:${passwordGenerate.apakahPunyaUpperCase(t7)}`,
-  `Apakah Punya Lower Case:${passwordGenerate.apakahPunyaLowerCase(t7)}`,
-  `Apakah Punya Symbol:${passwordGenerate.apakahPunyaSymbol(t7)}`)
+console.log(`Password Generate t3:${t3}`, `Length Benar:${t3.length===p3.length}`)
+console.log(`Password Generate t4:${t4}`, `Length Benar:${t4.length===p4.length}`)
+console.log(`Password Generate t5:${t5}`, `Length Benar:${t5.length===p5.length}`,
+  `Apakah Tidak punya Upper Case:${passwordGenerate.apakahPunyaUpperCase(t5)===p5.upperCase}`)
+console.log(`Password Generate t6:${t6}`, `Length Benar:${t6.length===p6.length}`,
+  `Apakah Tidak Punya Lower Case:${passwordGenerate.apakahPunyaLowerCase(t6)===p6.lowerCase}`,
+  `Apakah Tidak Punya Number:${passwordGenerate.apakahPunyaNumber(t6)===p6.number}`)
+console.log(`Password Generate t7:${t7}`, `Length Benar:${t7.length===p7.length}`,
+  `Apakah Tidak punya Upper Case:${passwordGenerate.apakahPunyaUpperCase(t7)===p7.upperCase}`,
+  `Apakah Tidak Punya Symbol:${passwordGenerate.apakahPunyaSymbol(t7)===p7.symbol}`)
