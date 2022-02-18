@@ -1,22 +1,74 @@
-let upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYXZ";
-let lowerCase = "abcdefghijklmnopqrstuvwxyz";
+let uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+let lowercase = "abcdefghijklmnopqrstuvwxyz";
 let number = "1234567890";
 let symbol = '`!@#$%^&*()_+{}|:"<>?[];,./';
 
 //--password generate--
 function generate(x) {
   let hasil = "";
+  //--fitur exclude--
+  if(x.exclude){
+    function excludeuppercase(x){
+    for (let i = 0; i < x.exclude.length; i++) {
+      for (let index = 0; index < uppercase.length; index++) {
+        if(x.exclude[i] === uppercase[index]){
+          uppercase = uppercase.replace(x.exclude[i],"")
+        }
+      }
+    }
+    return uppercase
+    }
+    function excludelowercase(x){
+    for (let i = 0; i < x.exclude.length; i++) {
+      for (let index = 0; index < lowercase.length; index++) {
+        if(x.exclude[i] === lowercase[index]){
+          lowercase = lowercase.replace(x.exclude[i],"")
+        }
+      }
+    }
+    return lowercase
+    }
+    function excludenumber(x){
+    for (let i = 0; i < x.exclude.length; i++) {
+      for (let index = 0; index < number.length; index++) {
+        if(x.exclude[i] === number[index]){
+          number = number.replace(x.exclude[i],"")
+        }
+      }
+    }
+    return number
+    }
+    function excludesymbol(x){
+    for (let i = 0; i < x.exclude.length; i++) {
+      for (let index = 0; index < symbol.length; index++) {
+        if(x.exclude[i] === symbol[index]){
+          symbol = symbol.replace(x.exclude[i],"")
+        }
+      }
+    }
+    return uppercase
+    }
+    function exclude(x){
+    let text = `Success exclude ${x}`
+    excludeuppercase(x)
+    excludelowercase(x)
+    excludenumber(x)
+    excludesymbol(x)
+    return text
+    }
+    exclude(x)
+  }
   function password(x) {
     if (x.length >= 4) {
       //--fitur trueFalse--
-      let options = [upperCase, lowerCase, number, symbol];
-      let uppercase = options.indexOf(upperCase);
-      if (x.upperCase == false) {
-        options.splice(uppercase, 1);
+      let options = [uppercase, lowercase, number, symbol];
+      let upperCase = options.indexOf(uppercase);
+      if (x.uppercase == false) {
+        options.splice(upperCase, 1);
       }
-      let lowercase = options.indexOf(lowerCase);
-      if (x.lowerCase == false) {
-        options.splice(lowercase, 1);
+      let lowerCase = options.indexOf(lowercase);
+      if (x.lowercase == false) {
+        options.splice(lowerCase, 1);
       }
       let Number = options.indexOf(number);
       if (x.number == false) {
@@ -54,20 +106,20 @@ function generate(x) {
 }
 
 //--apakahada fitur--
-function apakahPunyaUpperCase(x) {
-  for (let index = 0; index < upperCase.length; index++) {
+function apakahPunyaUppercase(x) {
+  for (let index = 0; index < uppercase.length; index++) {
     for (let i = 0; i < x.length; i++) {
-      if (x[i] === upperCase[index]) {
+      if (x[i] === uppercase[index]) {
         return true;
       }
     }
   }
   return false;
 }
-function apakahPunyaLowerCase(x) {
-  for (let index = 0; index < lowerCase.length; index++) {
+function apakahPunyaLowercase(x) {
+  for (let index = 0; index < lowercase.length; index++) {
     for (let i = 0; i < x.length; i++) {
-      if (x[i] === lowerCase[index]) {
+      if (x[i] === lowercase[index]) {
         return true;
       }
     }
@@ -96,7 +148,7 @@ function apakahPunyaSymbol(x) {
 }
 
 exports.generate = generate
-exports.apakahPunyaUpperCase = apakahPunyaUpperCase
-exports.apakahPunyaLowerCase = apakahPunyaLowerCase
+exports.apakahPunyaUppercase = apakahPunyaUppercase
+exports.apakahPunyaLowercase = apakahPunyaLowercase
 exports.apakahPunyaNumber = apakahPunyaNumber
 exports.apakahPunyaSymbol = apakahPunyaSymbol
